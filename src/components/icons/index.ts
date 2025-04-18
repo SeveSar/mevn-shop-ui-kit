@@ -1,0 +1,8 @@
+export {default as IconArrowDown} from './IconArrowDown.vue'
+export {default as IconBasket} from './IconBasket.vue'
+export {default as IconError} from './IconError.vue'
+export {default as IconInfo} from './IconInfo.vue'
+export {default as IconSpinner} from './IconSpinner.vue'
+export {default as IconTickCircle} from './IconTickCircle.vue'
+export {default as IconUser} from './IconUser.vue'
+export {default as IconCrossBig} from './IconCrossBig.vue'

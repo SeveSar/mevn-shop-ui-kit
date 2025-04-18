@@ -1,20 +1,11 @@
-<script lang="ts">
-import { computed, defineAsyncComponent, defineComponent } from 'vue';
-
-export default defineComponent({
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-  },
-  setup(props) {
-    const loadAsyncIcon = computed(() => defineAsyncComponent(() => import(`@/components/base/icons/${props.name}.vue`)));
-    return {
-      loadAsyncIcon,
-    };
-  },
-});
+<script lang="ts" setup>
+import { computed, defineAsyncComponent } from 'vue';
+import * as icons from '../icons'
+type Props = {
+  name: keyof typeof icons;
+}
+const props = defineProps<Props>();
+const loadAsyncIcon = computed(() => defineAsyncComponent(() => import(`@/components/icons/${props.name}.vue`)));
 </script>
 
 <template>

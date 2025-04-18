@@ -63,7 +63,7 @@ const currentComponent = computed(() => {
   user-select: none;
   font-family: 'SF-Pro';
   font-weight: 400;
-  color: var(--white-color);
+  color: $white-color;
   transition: all 0.2s linear;
   display: flex;
   align-items: center;
@@ -73,18 +73,18 @@ const currentComponent = computed(() => {
   border-radius: 6px;
 
   &__loading {
-    color: var(--white-color);
+    color: $white-color;
     animation: spinner 1s infinite linear;
     margin-right: 8px;
   }
 
   &-color {
     &--primary {
-      color: var(--main-color);
+      color: $main-color;
 
       &.button-variant--default {
-        background: var(--main-color);
-        color: var(--white-color);
+        background: $main-color;
+        color: $white-color;
         &:hover {
           background-color: color.adjust(#ff7010, $lightness: -15%);
         }
@@ -92,15 +92,15 @@ const currentComponent = computed(() => {
     }
 
     &--secondary {
-      color: var(--gray-color);
+      color: $gray-color;
 
       &.button-variant--default {
-        background-color: var(--gray-color);
-        color: var(--black-color);
+        background-color: $gray-color;
+        color: $black-color;
         &:hover,
         &.active {
-          background-color: var(--red-color);
-          color: var(--white-color);
+          background-color: $red-color;
+          color: $white-color;
         }
       }
     }
@@ -113,13 +113,13 @@ const currentComponent = computed(() => {
     }
 
     &--border {
-      background-color: var(--gray-color);
+      background-color: $gray-color;
       background-color: transparent;
-      color: var(--black-color);
-      border: 1px solid var(--main-color);
+      color: $black-color;
+      border: 1px solid $main-color;
       border-radius: 6px;
       padding: 10px 25px;
-      color: var(--main-color);
+      color: $main-color;
     }
 
     &--text {
