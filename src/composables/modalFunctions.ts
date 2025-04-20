@@ -1,8 +1,6 @@
-import { onMounted, onUnmounted, type Ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { onMounted, type Ref, watch, onBeforeUnmount } from 'vue';
 
 export function useModalFunctions(isOpen: Ref<boolean>, close: () => void) {
-  const route = useRoute();
   const onKeyHandler = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       close();
@@ -13,8 +11,10 @@ export function useModalFunctions(isOpen: Ref<boolean>, close: () => void) {
     document.body.addEventListener('keydown', onKeyHandler);
   });
 
-  onUnmounted(() => {
+  onBeforeUnmount(() => {
     document.body.removeEventListener('keydown', onKeyHandler);
+    document.body.classList.remove('no-scroll');
+    close()
   });
 
   watch(isOpen, (val) => {
@@ -24,11 +24,4 @@ export function useModalFunctions(isOpen: Ref<boolean>, close: () => void) {
     }
   });
 
-  watch(
-    () => route.name,
-    () => {
-      document.body.classList.remove('no-scroll');
-      close();
-    },
-  );
 }

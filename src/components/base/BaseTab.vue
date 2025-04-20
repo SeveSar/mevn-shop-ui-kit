@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 
 export interface ITab {
-  title: string
-  id: string
-  [key: string]: unknown
+  title: string;
+  id: string;
+  [key: string]: any;
 }
 interface Props {
-  modelValue: ITab
-  items: ITab[]
-  size?: 'small' | 'medium'
+  modelValue: ITab | null;
+  items: ITab[];
+  size?: "small" | "medium";
 }
 const props = withDefaults(defineProps<Props>(), {
-  size: 'medium',
+  size: "medium",
 });
 const classes = computed(() => {
   return {
@@ -28,7 +28,10 @@ const classes = computed(() => {
         v-for="tab in items"
         :key="tab.id"
         class="base-tab__tab"
-        :class="{ 'base-tab__tab--active': tab.id.toLocaleLowerCase() === modelValue.id.toLocaleLowerCase() }"
+        :class="{
+          'base-tab__tab--active':
+            String(tab.id).toLocaleLowerCase() === String(modelValue?.id).toLocaleLowerCase(),
+        }"
         @click.prevent="$emit('update:modelValue', tab)"
       >
         {{ tab.title }}

@@ -13,7 +13,7 @@ import BaseRadio from './base/BaseRadio.vue'
 import BaseSidePanel from './base/BaseSidePanel.vue'
 import BaseSkeleton from './base/BaseSkeleton.vue'
 import BaseSpinner from './base/BaseSpinner.vue'
-import BaseTab from './base/BaseTab.vue'
+import BaseTab, {type ITab} from './base/BaseTab.vue'
 import BaseTextArea from './base/BaseTextArea.vue'
 
 
@@ -36,5 +36,6 @@ export {
   BaseSpinner,
   BaseTab,
   BaseTextArea,
-  type SelectItem
+  type SelectItem,
+  type ITab
 }
